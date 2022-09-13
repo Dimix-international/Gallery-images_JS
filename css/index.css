@@ -1,0 +1,141 @@
+body,
+html {
+  font: 16px/1.4 Georgia, serif;
+}
+
+.page {
+  min-width: 1000px;
+  padding: 2.5rem 2rem;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  text-align: center;
+  margin-bottom: 0.4em;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.galleryItem {
+  flex: 0 1 25%;
+  padding-bottom: 29%;
+  height: 0;
+  position: relative;
+  vertical-align: top;
+  horiz-align: right;
+}
+
+.card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+}
+
+.cardLink {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: block;
+  color: white;
+}
+
+.cardLink:hover,
+.cardLink:visited {
+  color: white;
+}
+
+
+.cardContent,
+.cardHover,
+.cardImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.cardImage {
+  object-fit: cover;
+  z-index: 1;
+  transform: scale(1);
+  transition: all 3s ease-in;
+}
+
+.cardHover {
+  z-index: 2;
+  background: rgba(0,0,0,0.7);
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+}
+
+.cardContent {
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+}
+
+.cardTitle {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: center;
+  margin-bottom: 0.7em;
+  color: #daa35b;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.cardDescription {
+
+}
+
+.cardLink:hover .cardContent {
+  opacity: 1;
+}
+
+.cardLink:hover .cardHover {
+  opacity: 1;
+}
+
+.cardLink:hover .cardImage {
+  transform: scale(1.2);
+}
+
+/*
+Различия в с stylus и css.
+В уроке использовался stylus. Поэтому были доступны вложенности:
+.gallery {
+  &Item {
+    ....
+  }
+}
+
+В чистом CSS это не доступно и код сверху будет выглядеть:
+.gallery {}
+.galleryItem {}
+
+Так и по остальным стилям
+.card {}
+.cardLink {}
+.cardContent {}
+
+Если ховер
+
+.cardLink:hover {}
+*/
